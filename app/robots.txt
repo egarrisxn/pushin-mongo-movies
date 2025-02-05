@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /private/
+Sitemap: https://pushin-mongo-movies.vercel.app/sitemap.xml
+Host: https://pushin-mongo-movies.vercel.app
