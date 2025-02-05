@@ -24,10 +24,10 @@
 ## Technologies
 
 - **Framework**: [Next.js](https://nextjs.org/)
-- **Programming Language**: [TypeScript](https://www.typescriptlang.org/), [JavaScript (React)](https://reactjs.org/)
+- **Programming Language**: [TypeScript](https://www.typescriptlang.org/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **State Management**: [Nuqs]([https://www.radix-ui.com/](https://nuqs.47ng.com/))
-- **Database**: [MongoDB]([https://supabase.com/](https://www.mongodb.com/))
+- **State Management**: [Nuqs](https://nuqs.47ng.com/)
+- **Database**: [MongoDB](https://www.mongodb.com/)
 - **Icons**: [lucide-react](https://lucide.dev/)
 
 ## Features
