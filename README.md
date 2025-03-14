@@ -19,31 +19,40 @@
 
 ## Overview
 
-**Pushin Mongo Movies** is...
+**Pushin Mongo Movies** is a simple MongoDB-powered movie app that allows users to browse, add, and manage movie listings. Built with Next.js, Tailwind CSS, and MongoDB, the app is optimized for performance and seamless user experience.
 
 ## Technologies
 
-- **Framework**: [Next.js](https://nextjs.org/)
+- **Framework**: [Next.js](https://nextjs.org/) (with App Router)
 - **Programming Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **State Management**: [Nuqs](https://nuqs.47ng.com/)
-- **Database**: [MongoDB](https://www.mongodb.com/)
-- **Icons**: [lucide-react](https://lucide.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (v4)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand) *(Nuqs may not be the best fit—confirm if you're actually using it)*
+- **Database**: [MongoDB](https://www.mongodb.com/) (via Mongoose)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Authentication**: *[Specify if using Supabase, NextAuth, or something else]*
+- **Deployment**: *[Confirm if it's deployed on Vercel, Heroku, or another service]*
 
 ## Features
 
-...
+- Browse and search movies  
+- Add and delete movies  
+- MongoDB-powered data persistence  
+- Responsive and mobile-friendly UI  
+- Authentication *(if applicable, mention sign-in options)*  
 
 ## Getting Started
 
-To get a local copy up and running, follow these simple steps.
+Follow these steps to run the project locally.
 
 ### Prerequisites
 
-- **Node.js** (v18 or higher)
-- **pnpm** (recommended for package management)
+Make sure you have the following installed:
 
-## Installation
+- [Node.js](https://nodejs.org/) (LTS recommended)
+- [pnpm](https://pnpm.io/) *(or npm/yarn, specify which one you use)*
+- MongoDB *(local or cloud, specify if using MongoDB Atlas)*
+
+### Installation
 
 1. Clone the repo:
 
@@ -108,6 +117,4 @@ This project is licensed under the [MIT license](https://opensource.org/licenses
 ## **Contact**
 
 If you have any questions or need further assistance, feel free to reach out via GitHub: [egarrisxn](https://github.com/egarrisxn) and/or Email: [egarrisxn@gmail.com](mailto:egarrisxn@gmail.com).
-
-x
 
