@@ -22,57 +22,30 @@ const fontMono = FontMono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pushin-mongo-movies.vercel.app"),
   title: "Pushin Mongo Movies",
-  description: "Made with MongoDB, Nextjs, Nuqs, and Typescript.",
+  description:
+    "A personal movie database using MongoDB, Next.js, TypeScript, Nuqs, Tailwind CSS, & more!",
   applicationName: "Pushin Mongo Movies",
   referrer: "origin-when-cross-origin",
   creator: "https://egxo.dev.",
   keywords: [
     "nextjs, next, nuqs, mongo, mongodb, typescript, javascript, react, tailwind, tailwindcss, movies, database, moviedb, shadcnui",
   ],
-  robots: {
-    index: true,
-    follow: false,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: false,
-      noimageindex: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  manifest: "/manifest.json",
   openGraph: {
     title: "Pushin Mongo Movies",
-    description: "Made with MongoDB, Nextjs, Nuqs, and Typescript.",
+    description:
+      "A personal movie database using MongoDB, Next.js, TypeScript, Nuqs, Tailwind CSS, & more!",
     url: "https://pushin-mongo-movies.vercel.app",
     siteName: "Pushin Mongo Movies",
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Opengraph image for Pushin Mongo Movies",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "https://pushin-mongo-movies.vercel.app",
-    description: "Made with MongoDB, Nextjs, Nuqs, and Typescript.",
+    description:
+      "A personal movie database using MongoDB, Next.js, TypeScript, Nuqs, Tailwind CSS, & more!",
     creator: "@eg__xo",
     site: "@eg__xo",
-    images: [
-      {
-        url: "/twitter-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Twitter image for Pushin Mongo Movies",
-      },
-    ],
   },
 };
 

@@ -1,17 +1,12 @@
-import { z } from "zod";
+import Link from "next/link";
 import { getMovies } from "@/lib/mongo/movies";
-
+import { querySchema } from "@/lib/schema";
+import { Button } from "@/components/ui/button";
 import Movies from "@/components/movies";
 
-type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
+import type { SearchParams } from "@/lib/types";
 
-const querySchema = z.object({
-  query: z.string().optional(),
-  page: z.coerce.number().optional().default(1),
-  limit: z.coerce.number().optional().default(10),
-});
-
-export default async function Home(props: { searchParams: SearchParams }) {
+export default async function HomePage(props: { searchParams: SearchParams }) {
   const searchParams = await props.searchParams;
   const query = querySchema.parse(searchParams);
   const { movies, error } = await getMovies(query);
@@ -25,9 +20,18 @@ export default async function Home(props: { searchParams: SearchParams }) {
   return (
     <section className="py-24">
       <div className="container">
-        <h1 className="mb-12 text-3xl font-bold">Mongo Movies</h1>
-
+        <h1 className="mb-12 text-3xl font-extrabold leading-none tracking-tight">
+          Pushin Mongo Movies
+        </h1>
         <Movies movies={movies} />
+        <div className="mt-12">
+          <Button
+            asChild
+            className="bg-blue-500 text-destructive-foreground hover:bg-blue-500/90"
+          >
+            <Link href="/new">Add Movie</Link>
+          </Button>
+        </div>
       </div>
     </section>
   );

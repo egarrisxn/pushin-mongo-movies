@@ -2,7 +2,7 @@ import "server-only";
 
 import { Collection, Db, Document, MongoClient, ObjectId } from "mongodb";
 import clientPromise from "@/lib/mongo/client";
-import { PipelineStage } from "@/lib/types";
+import { PipelineStage, MovieData } from "@/lib/types";
 
 let client: MongoClient;
 let db: Db;
@@ -22,28 +22,31 @@ async function init() {
   console.log("Connected to MongoDB");
 }
 
+export { init, movies };
+
 //////////////
 /// Movies ///
 //////////////
 
 export async function getMovie(
   id: string
-): Promise<{ movie?: Document; error?: Error | unknown }> {
+): Promise<{ movie: MovieData | null; error: string | null }> {
   try {
     if (!movies) await init();
-
-    const result = await movies.findOne({ _id: new ObjectId(id) });
-
-    return { movie: JSON.parse(JSON.stringify(result)) };
+    const movie = (await movies.findOne({
+      _id: new ObjectId(id),
+    })) as MovieData | null;
+    return { movie, error: null };
   } catch (error) {
-    return { error };
+    console.error("Error getting movie", error);
+    return { movie: null, error: "Failed to fetch movie" };
   }
 }
 
 export async function getMovies({
   query,
   page = 1,
-  limit = 10,
+  limit = 8,
 }: {
   query?: string;
   page?: number;
@@ -51,11 +54,8 @@ export async function getMovies({
 }): Promise<{ movies?: Document[]; error?: Error | unknown }> {
   try {
     if (!movies) await init();
-
     const skip = (page - 1) * limit;
-
     const pipeline: PipelineStage[] = [{ $skip: skip }, { $limit: limit }];
-
     if (query) {
       pipeline.unshift({
         $search: {
@@ -74,13 +74,62 @@ export async function getMovies({
         },
       });
     }
-
     const result = await movies.aggregate(pipeline).toArray();
-
     await new Promise(resolve => setTimeout(resolve, 750));
-
     return { movies: JSON.parse(JSON.stringify(result)) };
   } catch (error) {
+    return { error };
+  }
+}
+
+export async function addMovie(movieData: Omit<MovieData, "_id">) {
+  try {
+    const client = await clientPromise;
+    const db = client.db("sample_mflix");
+    const movies = db.collection("movies");
+    await movies.insertOne(movieData);
+    return { error: null };
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return { error: error.message };
+    } else {
+      return { error: "An unknown error occurred." };
+    }
+  }
+}
+
+export async function updateMovie(
+  id: string,
+  movieData: Omit<MovieData, "_id">
+) {
+  try {
+    const client = await clientPromise;
+    const db = client.db("sample_mflix");
+    const movies = db.collection("movies");
+    await movies.updateOne({ _id: new ObjectId(id) }, { $set: movieData });
+    return { error: null };
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      return { error: error.message };
+    } else {
+      return { error: "An unknown error occurred." };
+    }
+  }
+}
+
+export async function deleteMovie(
+  id: string
+): Promise<{ movie?: Document; error?: Error | unknown }> {
+  try {
+    if (!movies) await init();
+    const result = await movies.deleteOne({ _id: new ObjectId(id) });
+    if (result.deletedCount > 0) {
+      return { movie: undefined };
+    } else {
+      return { error: new Error("Failed to delete movie") };
+    }
+  } catch (error) {
+    console.error("Error deleting movie", error);
     return { error };
   }
 }

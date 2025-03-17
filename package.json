@@ -1,12 +1,14 @@
 {
   "name": "pushin-mongo-movies",
-  "description": "Made with MongoDB, Nextjs, Nuqs, and Typescript.",
+  "version": "1.0.0",
+  "description": "A personal movie database using MongoDB, Next.js, React, TypeScript, Nuqs, Tailwind CSS, Vercel, & more!",
+  "license": "MIT",
   "homepage": "https://pushin-mongo-movies.vercel.app",
   "author": "Ethan G. (https://egxo.dev)",
-  "version": "1.0.0",
   "private": true,
   "keywords": [
     "typescript",
+    "mongodb",
     "nuqs",
     "nextjs",
     "react",
@@ -22,8 +24,7 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "fix:all": "eslint --fix && prettier --write ."
+    "format:fix": "prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.1",
@@ -53,5 +54,22 @@
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "sharp"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "proseWrap": "always",
+    "printWidth": 80,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }
