@@ -1,20 +1,18 @@
-import "./globals.css";
-
-import { Geist as FontSans, Geist_Mono as FontMono } from "next/font/google";
-import Nuqs from "@/components/nuqs";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import Nuqs from "@/lib/nuqs";
 import NextThemes from "@/components/next-themes";
 import ThemeToggle from "@/components/theme-toggle";
+import "./globals.css";
 
-import type { Metadata } from "next";
-
-const fontSans = FontSans({
-  variable: "--font-sans",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   display: "swap",
   subsets: ["latin"],
 });
 
-const fontMono = FontMono({
-  variable: "--font-mono",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
   display: "swap",
   subsets: ["latin"],
 });
@@ -47,6 +45,23 @@ export const metadata: Metadata = {
     creator: "@eg__xo",
     site: "@eg__xo",
   },
+  icons: {
+    icon: {
+      url: "/icon.png",
+      sizes: "192x192",
+      type: "image/png",
+    },
+    apple: {
+      url: "/apple-icon.png",
+      sizes: "180x180",
+      type: "image/png",
+    },
+    other: {
+      rel: "icon",
+      url: "/icon.svg",
+      type: "image/svg+xml",
+    },
+  },
 };
 
 export const viewport = {
@@ -62,12 +77,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${fontSans.variable} ${fontMono.variable}`}
-    >
-      <body className="scroll-smooth font-sans antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} scroll-smooth font-sans antialiased`}
+      >
         <Nuqs>
           <NextThemes>
             <ThemeToggle />

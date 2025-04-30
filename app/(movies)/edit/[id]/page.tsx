@@ -14,11 +14,13 @@ export default function EditMoviePage({
 
   return (
     <section className="py-24">
-      <div className="container w-full max-w-4xl">
-        <h1 className="mb-12 text-3xl font-extrabold leading-none tracking-tight">
+      <div className="container mx-auto w-full max-w-7xl p-4 sm:p-8">
+        <h1 className="mb-12 text-3xl leading-none font-extrabold tracking-tight">
           Edit Movie
         </h1>
-        <EditMovieForm id={idString} />
+        <div className="w-full max-w-4xl">
+          <EditMovieForm id={idString} />
+        </div>
       </div>
     </section>
   );

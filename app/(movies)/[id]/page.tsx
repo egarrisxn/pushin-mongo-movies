@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getMovie } from "@/lib/mongo/movies";
-import Movie from "@/components/movie";
-
-import type { MovieData } from "@/lib/types";
 import { Button } from "@/components/ui/button";
+import Movie from "@/components/movie";
+import type { MovieData } from "@/lib/types";
 
 export default async function MoviePage(props: {
   params: Promise<{ id: string }>;
@@ -25,12 +24,7 @@ export default async function MoviePage(props: {
 
   return (
     <section className="py-24">
-      <div className="container">
-        <div className="mb-12">
-          <Button asChild>
-            <Link href="/">Go Back</Link>
-          </Button>
-        </div>
+      <div className="container mx-auto w-full max-w-7xl p-4 sm:p-8">
         <Movie movie={movieWithIdString} />
       </div>
     </section>

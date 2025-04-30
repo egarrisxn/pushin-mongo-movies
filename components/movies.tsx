@@ -39,14 +39,14 @@ export default function Movies({ movies }: { movies?: Document[] }) {
             placeholder="Search movies..."
             value={search}
             onChange={handleSearchChange}
-            className="w-1/2 border dark:border-gray-500"
+            className="w-[60%] border sm:w-1/2 dark:border-gray-500"
           />
           <div className="flex gap-4">
             <Button
               onClick={handlePreviousPage}
               disabled={page === 1 || isLoading}
             >
-              Previous
+              Prev
             </Button>
             <Button onClick={handleNextPage} disabled={isLoading}>
               Next

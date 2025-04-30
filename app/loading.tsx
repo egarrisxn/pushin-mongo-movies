@@ -4,10 +4,12 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function Loading() {
   return (
     <section className="py-24">
-      <div className="container">
-        <h1 className="mb-12 text-3xl font-bold">Movies</h1>
+      <div className="container mx-auto w-full max-w-7xl p-4 sm:p-8">
+        <h1 className="mb-12 text-3xl leading-none font-extrabold tracking-tight">
+          Pushin&apos Mongo: Movies
+        </h1>
 
-        <header className="mb-4">
+        <header className="mb-8">
           <div className="flex justify-end gap-4">
             <Skeleton className="h-10 w-20" />
             <Skeleton className="h-10 w-20" />

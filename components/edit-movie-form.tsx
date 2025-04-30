@@ -146,14 +146,19 @@ export default function EditMovieForm({ id }: MovieFormProps) {
           className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
         />
       </div>
+      <div className="mx-auto mt-3 flex w-full flex-row gap-4">
+        <Button
+          type="submit"
+          disabled={isPending}
+          className="bg-blue-500 hover:bg-blue-500/90"
+        >
+          {isPending ? "Saving Changes..." : "Save Changes"}
+        </Button>
 
-      <Button
-        type="submit"
-        disabled={isPending}
-        className="w-full bg-blue-500 text-destructive-foreground hover:bg-blue-500/90"
-      >
-        {isPending ? "Saving Changes..." : "Save Changes"}
-      </Button>
+        <Button type="button" onClick={() => router.push("/")}>
+          Discard Changes
+        </Button>
+      </div>
     </form>
   );
 }

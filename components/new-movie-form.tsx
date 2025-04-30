@@ -133,7 +133,7 @@ export default function NewMovieForm() {
         <Button
           type="submit"
           disabled={isPending}
-          className="w-full bg-blue-500 text-destructive-foreground hover:bg-blue-500/90"
+          className="w-full bg-blue-500 hover:bg-blue-500/90"
         >
           {isPending ? "Adding..." : "Add Movie"}
         </Button>
