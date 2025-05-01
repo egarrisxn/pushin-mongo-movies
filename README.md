@@ -63,13 +63,13 @@ Make sure you have the following installed:
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/yourusername/pushin-mongo-movies.git
+   git clone https://github.com/egarrisxn/pushin-mongo-movies.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd xprod
+   cd pushin-mongo-movies
    ```
 
 3. Install dependencies:
@@ -97,7 +97,7 @@ Make sure you have the following installed:
   pnpm start
   ```
 
-- To lint the project:
+- To lint the project with ESLint:
 
   ```bash
   pnpm lint
