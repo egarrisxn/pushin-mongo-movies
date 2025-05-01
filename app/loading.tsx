@@ -3,10 +3,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
   return (
-    <section className="py-24">
-      <div className="container mx-auto w-full max-w-7xl p-4 sm:p-8">
-        <h1 className="mb-12 text-3xl leading-none font-extrabold tracking-tight">
-          Pushin&apos Mongo: Movies
+    <section className="py-16">
+      <div className="container mx-auto w-full max-w-6xl p-4 sm:p-8">
+        <h1 className="mb-12 text-3xl leading-none font-extrabold tracking-tight sm:text-4xl">
+          Pushin&apos; Mongo: Movies
         </h1>
 
         <header className="mb-8">

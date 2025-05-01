@@ -1,17 +1,9 @@
-"use client";
-
-import { use } from "react";
-import EditMovieForm from "@/components/form/edit-movie-form";
+import { getMovies } from "@/lib/mongo/movies";
+import ApproveMovieForm from "@/components/form/approve-movie-form";
 import GoBackLink from "@/components/link/go-back-link";
 
-export default function EditMoviePage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = use(params);
-
-  const idString = id;
+export default async function ApproveMoviePage() {
+  const { movies = [] } = await getMovies({ approved: false });
 
   return (
     <section className="py-16">
@@ -19,10 +11,10 @@ export default function EditMoviePage({
         <div className="mb-12 sm:flex sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <GoBackLink />
           <h1 className="order-2 text-3xl leading-none font-extrabold tracking-tight sm:order-1 sm:text-4xl">
-            Edit Movie
+            Approve Movie(s)
           </h1>
         </div>
-        <EditMovieForm id={idString} />
+        <ApproveMovieForm movies={movies} />
       </div>
     </section>
   );

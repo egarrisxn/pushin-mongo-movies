@@ -7,8 +7,8 @@ import {
   addMovie,
   updateMovie,
   deleteMovie,
+  approveMovie,
 } from "@/lib/mongo/movies";
-
 import type { MovieData } from "@/lib/types";
 
 export async function getMovieAction(id: string): Promise<MovieData | null> {
@@ -50,4 +50,12 @@ export async function deleteMovieAction(id: string) {
   }
   revalidatePath("/");
   redirect("/");
+}
+
+export async function approveMovieAction(id: string) {
+  const { error } = await approveMovie(id);
+  if (error) {
+    throw new Error("Failed to approve movie.");
+  }
+  revalidatePath("/");
 }

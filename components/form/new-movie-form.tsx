@@ -61,7 +61,7 @@ export default function NewMovieForm() {
             placeholder="Title"
             value={form.title}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
             required
           />
         </div>
@@ -75,10 +75,10 @@ export default function NewMovieForm() {
           <textarea
             id="plot"
             name="plot"
-            placeholder="plot"
+            placeholder="Plot"
             value={form.plot}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="border-input placeholder:text-muted-foreground focus-visible:ring-ring flex min-h-[60px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
           />
         </div>
         <div className="space-y-1">
@@ -95,7 +95,7 @@ export default function NewMovieForm() {
             placeholder="Year"
             value={form.year}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
           />
         </div>
         <div className="space-y-1">
@@ -103,16 +103,16 @@ export default function NewMovieForm() {
             htmlFor="poster"
             className="block text-sm font-medium text-gray-700"
           >
-            Poster URL:
+            Poster (amazon image url):
           </label>
           <input
             type="text"
             id="poster"
             name="poster"
-            placeholder="Poster URL"
+            placeholder="Poster"
             value={form.poster}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
           />
         </div>
         <div className="space-y-1">
@@ -120,23 +120,26 @@ export default function NewMovieForm() {
             htmlFor="cast"
             className="block text-sm font-medium text-gray-700"
           >
-            Cast (comma-separated):
+            Cast (seperated by comma):
           </label>
           <textarea
             id="cast"
             name="cast"
+            placeholder="Cast"
             value={form.cast}
             onChange={handleChange}
-            className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="border-input placeholder:text-muted-foreground focus-visible:ring-ring flex min-h-[60px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
           />
         </div>
-        <Button
-          type="submit"
-          disabled={isPending}
-          className="w-full bg-blue-500 hover:bg-blue-500/90"
-        >
-          {isPending ? "Adding..." : "Add Movie"}
-        </Button>
+        <div className="mt-3 sm:mt-6">
+          <Button
+            type="submit"
+            disabled={isPending}
+            className="bg-blue-500 hover:bg-blue-500/90"
+          >
+            {isPending ? "Adding..." : "Add Movie"}
+          </Button>
+        </div>
       </form>
     </>
   );

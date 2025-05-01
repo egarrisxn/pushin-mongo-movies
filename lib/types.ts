@@ -5,6 +5,7 @@ export interface MovieData {
   plot?: string;
   cast?: string[];
   year: number | null;
+  approved?: boolean;
 }
 
 export type PipelineStage =
@@ -19,6 +20,9 @@ export type PipelineStage =
           };
         };
       };
+    }
+  | {
+      $match: Record<string, any>;
     }
   | {
       $skip: number;

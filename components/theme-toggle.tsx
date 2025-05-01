@@ -8,17 +8,15 @@ export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex flex-row items-end justify-end p-2">
-      <Button
-        type="button"
-        variant="ghost"
-        size="icon"
-        className="size-12"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      >
-        <SunIcon className="size-6 text-neutral-800 dark:hidden dark:text-neutral-200" />
-        <MoonStarIcon className="hidden size-6 text-neutral-800 dark:block dark:text-neutral-200" />
-      </Button>
-    </div>
+    <Button
+      type="button"
+      variant="outline"
+      size="icon"
+      className="size-9 sm:size-10"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
+      <SunIcon className="size-5 text-zinc-800 sm:size-6 dark:hidden dark:text-zinc-200" />
+      <MoonStarIcon className="hidden size-5 text-zinc-800 sm:size-6 dark:block dark:text-zinc-200" />
+    </Button>
   );
 }

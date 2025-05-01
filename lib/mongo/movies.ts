@@ -47,15 +47,21 @@ export async function getMovies({
   query,
   page = 1,
   limit = 8,
+  approved = true,
 }: {
   query?: string;
   page?: number;
   limit?: number;
+  approved?: boolean;
 }): Promise<{ movies?: Document[]; error?: Error | unknown }> {
   try {
     if (!movies) await init();
     const skip = (page - 1) * limit;
-    const pipeline: PipelineStage[] = [{ $skip: skip }, { $limit: limit }];
+    const pipeline: PipelineStage[] = [
+      { $match: { approved } },
+      { $skip: skip },
+      { $limit: limit },
+    ];
     if (query) {
       pipeline.unshift({
         $search: {
@@ -85,9 +91,9 @@ export async function getMovies({
 export async function addMovie(movieData: Omit<MovieData, "_id">) {
   try {
     const client = await clientPromise;
-    const db = client.db("sample_mflix");
+    const db = client.db("moviesdb");
     const movies = db.collection("movies");
-    await movies.insertOne(movieData);
+    await movies.insertOne({ ...movieData, approved: false });
     return { error: null };
   } catch (error: unknown) {
     if (error instanceof Error) {
@@ -104,7 +110,7 @@ export async function updateMovie(
 ) {
   try {
     const client = await clientPromise;
-    const db = client.db("sample_mflix");
+    const db = client.db("moviesdb");
     const movies = db.collection("movies");
     await movies.updateOne({ _id: new ObjectId(id) }, { $set: movieData });
     return { error: null };
@@ -131,5 +137,20 @@ export async function deleteMovie(
   } catch (error) {
     console.error("Error deleting movie", error);
     return { error };
+  }
+}
+
+export async function approveMovie(id: string) {
+  try {
+    const client = await clientPromise;
+    const db = client.db("moviesdb");
+    const movies = db.collection("movies");
+    await movies.updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { approved: true } }
+    );
+    return { error: null };
+  } catch (error: unknown) {
+    return { error: error instanceof Error ? error.message : "Unknown error" };
   }
 }

@@ -4,7 +4,6 @@ import { useTransition, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { updateMovieAction, getMovieAction } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
-
 import type { MovieData } from "@/lib/types";
 
 interface MovieFormProps {
@@ -72,7 +71,7 @@ export default function EditMovieForm({ id }: MovieFormProps) {
           id="title"
           value={movie.title}
           onChange={e => setMovie({ ...movie, title: e.target.value })}
-          className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         />
       </div>
       <div className="space-y-1">
@@ -86,7 +85,7 @@ export default function EditMovieForm({ id }: MovieFormProps) {
           id="plot"
           value={movie.plot}
           onChange={e => setMovie({ ...movie, plot: e.target.value })}
-          className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="border-input placeholder:text-muted-foreground focus-visible:ring-ring flex min-h-[60px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         />
       </div>
 
@@ -107,7 +106,7 @@ export default function EditMovieForm({ id }: MovieFormProps) {
               year: e.target.value !== "" ? Number(e.target.value) : null,
             })
           }
-          className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         />
       </div>
       <div className="space-y-1">
@@ -115,14 +114,14 @@ export default function EditMovieForm({ id }: MovieFormProps) {
           htmlFor="poster"
           className="block text-sm font-medium text-gray-700"
         >
-          Poster URL:
+          Poster (amazon image url):
         </label>
         <input
           type="text"
           id="poster"
           value={movie.poster}
           onChange={e => setMovie({ ...movie, poster: e.target.value })}
-          className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="border-input file:text-foreground placeholder:text-muted-foreground focus-visible:ring-ring flex h-9 w-full rounded-md border bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         />
       </div>
       <div className="space-y-1">
@@ -130,7 +129,7 @@ export default function EditMovieForm({ id }: MovieFormProps) {
           htmlFor="cast"
           className="block text-sm font-medium text-gray-700"
         >
-          Cast (comma-separated):
+          Cast (seperated by comma):
         </label>
         <textarea
           id="cast"
@@ -143,20 +142,20 @@ export default function EditMovieForm({ id }: MovieFormProps) {
                 .map(castMember => castMember.trim()),
             })
           }
-          className="mt-1 block w-full rounded-md border-gray-300 p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="border-input placeholder:text-muted-foreground focus-visible:ring-ring flex min-h-[60px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
         />
       </div>
-      <div className="mx-auto mt-3 flex w-full flex-row gap-4">
+      <div className="mx-auto mt-3 flex w-full flex-row gap-4 sm:mt-6">
         <Button
           type="submit"
           disabled={isPending}
           className="bg-blue-500 hover:bg-blue-500/90"
         >
-          {isPending ? "Saving Changes..." : "Save Changes"}
+          {isPending ? "Saving..." : "Save"}
         </Button>
 
         <Button type="button" onClick={() => router.push("/")}>
-          Discard Changes
+          Discard
         </Button>
       </div>
     </form>

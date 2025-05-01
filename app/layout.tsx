@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Nuqs from "@/lib/nuqs";
+import Nuqs from "@/components/nuqs";
 import NextThemes from "@/components/next-themes";
-import ThemeToggle from "@/components/theme-toggle";
+import Navbar from "@/components/navbar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -83,7 +83,7 @@ export default function RootLayout({
       >
         <Nuqs>
           <NextThemes>
-            <ThemeToggle />
+            <Navbar />
             {children}
           </NextThemes>
         </Nuqs>
