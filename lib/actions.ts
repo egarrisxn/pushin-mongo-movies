@@ -9,6 +9,7 @@ import {
   deleteMovie,
   approveMovie,
 } from "@/lib/mongo/movies";
+
 import type { MovieData } from "@/lib/types";
 
 export async function getMovieAction(id: string): Promise<MovieData | null> {

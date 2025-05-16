@@ -7,11 +7,7 @@ import GoBackLink from "@/components/link/go-back-link";
 
 import type { MovieData } from "@/lib/types";
 
-interface MovieProps {
-  movie: MovieData | null;
-}
-
-export default function Movie({ movie }: MovieProps) {
+export default function Movie({ movie }: { movie: MovieData | null }) {
   if (!movie) {
     return (
       <div className="w-full max-w-[18rem]">

@@ -4,13 +4,10 @@ import { useTransition, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { updateMovieAction, getMovieAction } from "@/lib/actions";
 import { Button } from "@/components/ui/button";
+
 import type { MovieData } from "@/lib/types";
 
-interface MovieFormProps {
-  id: string;
-}
-
-export default function EditMovieForm({ id }: MovieFormProps) {
+export default function EditMovieForm({ id }: { id: string }) {
   const [movie, setMovie] = useState<MovieData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
