@@ -54,25 +54,25 @@ export default function Movie({ movie }: { movie: MovieData | null }) {
         </div>
         <div className="mt-2 sm:flex sm:max-w-80 sm:flex-col md:max-w-92 lg:max-w-xl xl:max-w-2xl">
           <p className="hidden text-xs font-bold sm:block md:text-sm">Plot</p>
-          <p className="text-foreground/70 block truncate text-sm font-medium sm:flex sm:flex-wrap sm:text-pretty md:text-lg">
+          <p className="block truncate text-sm font-medium text-foreground/70 sm:flex sm:flex-wrap sm:text-pretty md:text-lg">
             {movie.plot}
           </p>
           <p className="hidden text-xs font-bold sm:mt-4 sm:block md:text-sm">
             Cast
           </p>
-          <p className="text-foreground/60 block truncate text-sm font-medium sm:flex sm:flex-wrap sm:text-pretty md:text-base">
+          <p className="block truncate text-sm font-medium text-foreground/60 sm:flex sm:flex-wrap sm:text-pretty md:text-base">
             {movie.cast?.join(", ")}
           </p>
           <p className="hidden text-xs font-bold sm:mt-4 sm:block md:text-sm">
             Year
           </p>
-          <p className="text-foreground/50 block text-sm font-medium sm:flex sm:flex-wrap sm:text-pretty md:text-base">
+          <p className="block text-sm font-medium text-foreground/50 sm:flex sm:flex-wrap sm:text-pretty md:text-base">
             {movie.year}
           </p>
           <p className="hidden text-xs font-bold sm:mt-4 sm:block md:text-sm">
             Review
           </p>
-          <p className="text-foreground/70 hidden text-sm font-medium sm:block">
+          <p className="hidden text-sm font-medium text-foreground/70 sm:block">
             Coming soon...
           </p>
         </div>

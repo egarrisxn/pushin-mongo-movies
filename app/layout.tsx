@@ -78,7 +78,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head><meta name='apple-mobile-web-app-title' content='Pushin Mongo Movies' /></head>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Pushin Mongo Movies" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} scroll-smooth font-sans antialiased`}
       >

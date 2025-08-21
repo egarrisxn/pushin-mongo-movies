@@ -11,7 +11,7 @@ export default function ApproveMovieForm({ movies }: { movies: any[] }) {
           {movies.map((movie: any) => (
             <li
               key={movie._id}
-              className="text-secondary-foreground bg-secondary rounded-sm border p-4 shadow"
+              className="rounded-sm border bg-secondary p-4 text-secondary-foreground shadow"
             >
               <div className="flex items-center justify-between">
                 <div>
