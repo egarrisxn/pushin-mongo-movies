@@ -20,7 +20,18 @@ const eslintConfig = [
     },
   }),
   {
-    ignores: ["**/node_modules/", ".git/", ".next/"],
+    ignores: [    '.next/**',
+    '.git/**',
+    '.vscode/**',
+    '.vercel/**',
+    'coverage/**',
+    'node_modules/**',
+    'dist/**',
+    'public/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    '**/node_modules/',],
   },
 ];
 
